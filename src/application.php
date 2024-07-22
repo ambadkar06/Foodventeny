@@ -61,7 +61,6 @@ function submitApplication($applicationTypeName, $name, $email) {
     }
 }
 
-// Function to get applicants by application type
 // Function to get applicants by application type name
 function getApplicants($applicationTypeName) {
     global $conn;
@@ -104,15 +103,23 @@ function getApplicants($applicationTypeName) {
 // Function to update the status of an application
 function updateApplicationStatus($id, $status) {
     global $conn;
+
+    // Valid status values
+    $validStatuses = ['pending', 'approved', 'waitlisted'];
+
     if ($conn) {
-        $stmt = $conn->prepare("
-            UPDATE application
-            SET status = :status
-            WHERE id = :id
-        ");
-        $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':status', $status);
-        $stmt->execute();
+        if (in_array($status, $validStatuses)) {
+            $stmt = $conn->prepare("
+                UPDATE application
+                SET status = :status
+                WHERE id = :id
+            ");
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':status', $status);
+            $stmt->execute();
+        } else {
+            echo "Invalid status value provided.";
+        }
     } else {
         echo "Database connection is not established.";
     }
