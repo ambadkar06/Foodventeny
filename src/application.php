@@ -1,5 +1,5 @@
 <?php
-include 'db.php'; // Use include_once to prevent multiple inclusions
+include 'db.php'; 
 
 // Function to create a new application type
 
