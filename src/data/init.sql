@@ -1,7 +1,7 @@
 -- Table to store application types
 CREATE TABLE IF NOT EXISTS application_types (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL UNIQUE,  -- Ensure title is unique
+    title VARCHAR(255) NOT NULL UNIQUE, 
     description TEXT NOT NULL,
     deadline DATE NOT NULL,
     cover_photo VARCHAR(255) NULL
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS application_types (
 -- Table to store applications
 CREATE TABLE IF NOT EXISTS application (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    application_type_name VARCHAR(255) NOT NULL,  -- Changed to VARCHAR
+    application_type_name VARCHAR(255) NOT NULL, 
     applicant_name VARCHAR(255) NOT NULL,
     applicant_email VARCHAR(255) NOT NULL,
     status ENUM('pending', 'approved', 'waitlisted') DEFAULT 'pending',
