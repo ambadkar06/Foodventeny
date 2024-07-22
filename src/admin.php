@@ -58,6 +58,7 @@ $applicationTypes = getApplicationTypes();
     <form method="post">
         <input type="text" name="title" placeholder="Title" required>
         <textarea name="description" placeholder="Description" required></textarea>
+        <input type="date" name="deadline" placeholder="Deadline" required> 
         <button type="submit" name="create_application_type">Create Application Type</button>
     </form>
 
