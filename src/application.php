@@ -4,7 +4,7 @@ include 'db.php';
 // Function to create a new application type
 
 function createApplicationType($title, $description, $deadline = '2024-12-31', $coverPhoto = null) {
-    global $conn; // Ensure $conn is available globally
+    global $conn; 
 
     try {
         $query = "INSERT INTO application_types (title, description, deadline,cover_photo) VALUES (:title, :description, :deadline, :cover_photo)";
